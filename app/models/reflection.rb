@@ -1,3 +1,3 @@
 class Reflection < ApplicationRecord
-  belongs_to :Place
+  belongs_to :place
 end
