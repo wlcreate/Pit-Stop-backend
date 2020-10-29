@@ -19,7 +19,7 @@ Category.reset_pk_sequence
 User.reset_pk_sequence
 
 ## Users
-waverley = User.create!(first_name: "Waverley", last_name: "Leung", username: "Wavey", password: "abc123")
+waverley = User.create!(first_name: "Waverley", last_name: "Leung", username: "wavey", password: "abc123")
 
 ## Categories
 bar = Category.create!(name: "Bar")
