@@ -7,13 +7,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # users
-  post '/users/login', to: "users#login"
-  get '/users/keep_logged_in', to: "users#keep_logged_in"
-  post '/users', to: "users#create"
+  post '/users/login', to: "users#login" # find the user & log them in
+  get '/users/keep_logged_in', to: "users#keep_logged_in" # check if user never logged out
+  post '/users', to: "users#create" # add a new user
 
   # trips
-  post '/trips', to: "trips#create"
+  post '/trips', to: "trips#create" # add a new trip
 
   # places
-  post '/places', to: "places#create"
+  post '/places', to: "places#create" # add a new place
+
+  # categories
+  get '/categories', to: "categories#index" # get all the categories
+
 end

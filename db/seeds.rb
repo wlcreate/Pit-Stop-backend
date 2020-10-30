@@ -25,11 +25,13 @@ waverley = User.create!(first_name: "Waverley", last_name: "Leung", username: "w
 bar = Category.create!(name: "Bar")
 cafe = Category.create!(name: "Cafe")
 restaurant = Category.create!(name: "Restaurant")
-cultural_center = Category.create!(name: "Cultural Center")
 shopping = Category.create!(name: "Shopping")
-park = Category.create!(name: "Park")
-museum = Category.create!(name: "Museum")
-zoo = Category.create!(name: "Zoo")
+cultural_attraction = Category.create!(name: "Cultural Attraction")
+nature = Category.create!(name: "Nature")
+entertainment = Category.create!(name: "Entertainment")
+festivals = Category.create(name: "Festival")
+hotel = Category.create!(name: "Hotel and Lodging")
+recreation = Category.create!(name: "Recreation")
 
 ## Trips
 summer_2018 = Trip.create!(title: "Summer Vacation 2018", description: "Trip with the fam to get away from NYC and go to a nice beach", start_date: DateTime.new(2018, 8, 15), end_date: DateTime.new(2018, 8, 22), user: waverley)

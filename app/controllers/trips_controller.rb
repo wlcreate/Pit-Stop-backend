@@ -4,7 +4,7 @@ class TripsController < ApplicationController
     def create
         @trip = @user.trips.create(trip_params)
 
-        render json: @trip
+        render json: @trip, serializer: TripSerializer
     end
 
     private
