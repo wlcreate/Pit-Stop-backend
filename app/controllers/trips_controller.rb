@@ -1,8 +1,16 @@
 class TripsController < ApplicationController
-    before_action :authorized, only: [:create]
+    before_action :authorized, only: [:create, :destroy]
 
     def create
         @trip = @user.trips.create(trip_params)
+
+        render json: @trip, serializer: TripSerializer
+    end
+
+    def destroy
+        @trip = Trip.find(params[:id])
+        @trip.places.destroy_all
+        @trip.destroy
 
         render json: @trip, serializer: TripSerializer
     end

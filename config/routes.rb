@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # trips
   post '/trips', to: "trips#create" # add a new trip
+  delete '/trips/:id', to: "trips#destroy" # deletes a trip
 
   # places
   post '/places', to: "places#create" # add a new place
