@@ -36,7 +36,8 @@ class UsersController < ApplicationController
                 token: wristband_token
             }
         else
-            render json: {error: "Invalid User"}, status: 422
+            @errors = @user.errors.full_messages
+            render json: {errors: @errors}, status: 422
         end
     end
 

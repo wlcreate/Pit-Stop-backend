@@ -3,8 +3,12 @@ class TripsController < ApplicationController
 
     def create
         @trip = @user.trips.create(trip_params)
-
-        render json: @trip, serializer: TripSerializer
+        if @trip.valid?
+            render json: @trip, serializer: TripSerializer
+        else 
+            @errors = @trip.errors.full_messages
+            render json: {errors: @errors}, status: 422
+        end
     end
 
     def destroy

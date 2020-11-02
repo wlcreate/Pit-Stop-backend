@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
         trip_id = params[:trip_id]
         @trip = Trip.all.find(trip_id)
         @place = @trip.places.create(place_params)
-        # byebug
+
         # render json: @place, serializer: PlaceSerializer
         render json: {
                 user: UserSerializer.new(@user), 
