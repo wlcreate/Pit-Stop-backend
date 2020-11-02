@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   # trips
   post '/trips', to: "trips#create" # add a new trip
   delete '/trips/:id', to: "trips#destroy" # deletes a trip
-  patch '/trips/:id', to: "trips#update" #udpates a trip
+  patch '/trips/:id', to: "trips#update" # updates a trip
 
   # places
   post '/places', to: "places#create" # add a new place
+  delete '/trips/:trip_id/places/:place_id', to: "places#destroy" # deletes a place
   patch '/trips/:trip_id/places/:place_id', to: "places#update" #updates a place
 
   # categories
