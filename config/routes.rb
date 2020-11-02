@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   # places
   post '/places', to: "places#create" # add a new place
+  patch '/trips/:trip_id/places/:place_id', to: "places#update" #updates a place
 
   # categories
   get '/categories', to: "categories#index" # get all the categories

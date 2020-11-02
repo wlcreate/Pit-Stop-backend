@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-    before_action :authorized, only: [:create]
+    before_action :authorized, only: [:create, :update]
 
     def create
         # byebug
@@ -13,6 +13,17 @@ class PlacesController < ApplicationController
                 place: PlaceSerializer.new(@place),
                 chosen_trip: TripSerializer.new(@trip)
             }
+    end
+
+    def update
+        # byebug
+        @place = Place.find(params[:place_id])
+        @place.update(place_params)
+
+        render json: {
+            user: UserSerializer.new(@user), 
+            place: PlaceSerializer.new(@place)
+        }
     end
 
     private
