@@ -14,6 +14,28 @@ class ReflectionsController < ApplicationController
             }
     end
 
+    def destroy
+        # byebug
+        @reflection = Reflection.find(params[:id])
+        @reflection.destroy
+
+        render json: {
+            user: UserSerializer.new(@user), 
+            reflection: ReflectionSerializer.new(@reflection)
+        }
+    end
+
+    def update
+        # byebug
+        @reflection= Reflection.find(params[:id])
+        @reflection.update(reflection_params)
+
+        render json: {
+            user: UserSerializer.new(@user), 
+            reflection: ReflectionSerializer.new(@reflection)
+        }
+    end
+
     private
 
     def reflection_params
