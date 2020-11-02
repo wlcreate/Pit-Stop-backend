@@ -17,7 +17,7 @@ class PlacesController < ApplicationController
 
     def destroy
         # byebug
-        @place = Place.find(params[:place_id])
+        @place = Place.find(params[:id])
         @place.reflections.destroy_all
         @place.destroy
 
@@ -29,7 +29,7 @@ class PlacesController < ApplicationController
 
     def update
         # byebug
-        @place = Place.find(params[:place_id])
+        @place = Place.find(params[:id])
         @place.update(place_params)
 
         render json: {

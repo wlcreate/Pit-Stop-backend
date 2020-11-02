@@ -18,8 +18,11 @@ Rails.application.routes.draw do
 
   # places
   post '/places', to: "places#create" # add a new place
-  delete '/trips/:trip_id/places/:place_id', to: "places#destroy" # deletes a place
-  patch '/trips/:trip_id/places/:place_id', to: "places#update" #updates a place
+  delete '/places/:id', to: "places#destroy" # deletes a place
+  patch '/places/:id', to: "places#update" #updates a place
+
+  # reflections
+  post '/reflections', to: "reflections#create" # add a new reflection
 
   # categories
   get '/categories', to: "categories#index" # get all the categories
