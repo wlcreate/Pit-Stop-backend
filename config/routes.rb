@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/users/login', to: "users#login" # find the user & log them in
   get '/users/keep_logged_in', to: "users#keep_logged_in" # check if user never logged out
   post '/users', to: "users#create" # add a new user
+  post '/users/check_password', to: "users#check_password" # check the user
+  patch '/users/:id', to: "users#update" # updates the user
 
   # trips
   post '/trips', to: "trips#create" # add a new trip
