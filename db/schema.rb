@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_201350) do
     t.string "area"
     t.string "country"
     t.boolean "revisit"
+    t.string "latitude"
+    t.string "longitude"
     t.bigint "category_id", null: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false

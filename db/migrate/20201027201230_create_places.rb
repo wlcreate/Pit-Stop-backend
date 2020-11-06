@@ -6,6 +6,8 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.string :area
       t.string :country
       t.boolean :revisit
+      t.string :latitude
+      t.string :longitude
       t.belongs_to :category, null: false, foreign_key: true
       t.belongs_to :trip, null: false, foreign_key: true
 
