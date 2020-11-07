@@ -17,6 +17,8 @@ class ReflectionsController < ApplicationController
     def destroy
         # byebug
         @reflection = Reflection.find(params[:id])
+        byebug
+        Cloudinary::Uploader.destroy(@reflection.media.split(".png")[0].split("/").last)
         @reflection.destroy
 
         render json: {
@@ -32,6 +34,19 @@ class ReflectionsController < ApplicationController
 
         render json: {
             user: UserSerializer.new(@user), 
+            reflection: ReflectionSerializer.new(@reflection)
+        }
+    end
+
+    def add_media
+        @reflection= Reflection.find(params[:id])
+
+        media = Cloudinary::Uploader.upload(params[:media])
+        # byebug
+        @reflection.update(media: media["url"])
+
+        render json: {
+            user: UserSerializer.new(@reflection.place.trip.user),
             reflection: ReflectionSerializer.new(@reflection)
         }
     end

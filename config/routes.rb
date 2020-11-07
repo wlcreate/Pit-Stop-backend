@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post '/reflections', to: "reflections#create" # add a new reflection
   delete '/reflections/:id', to: "reflections#destroy" # destroys a reflection
   patch '/reflections/:id', to: "reflections#update" # updates a reflection
+  patch '/reflections/:id/media', to: "reflections#add_media" # adds media to reflection
 
   # categories
   get '/categories', to: "categories#index" # get all the categories

@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_201350) do
     t.date "date_visited"
     t.integer "rating"
     t.string "content"
+    t.string "media"
     t.bigint "place_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
