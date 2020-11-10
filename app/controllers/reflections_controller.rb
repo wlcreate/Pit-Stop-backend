@@ -17,7 +17,7 @@ class ReflectionsController < ApplicationController
     def destroy
         # byebug
         @reflection = Reflection.find(params[:id])
-        byebug
+        # need to get the public id from the url to delete from Cloudinary
         Cloudinary::Uploader.destroy(@reflection.media.split(".png")[0].split("/").last)
         @reflection.destroy
 
