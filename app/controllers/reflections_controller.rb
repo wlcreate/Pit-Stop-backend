@@ -18,8 +18,12 @@ class ReflectionsController < ApplicationController
         # byebug
         @reflection = Reflection.find(params[:id])
         # need to get the public id from the url to delete from Cloudinary
-        Cloudinary::Uploader.destroy(@reflection.media.split(".png")[0].split("/").last)
-        @reflection.destroy
+        if @reflection.media
+            Cloudinary::Uploader.destroy(@reflection.media.split(".png")[0].split("/").last)
+            @reflection.destroy
+        else 
+            @reflection.destroy
+        end
 
         render json: {
             user: UserSerializer.new(@user), 
