@@ -13,6 +13,15 @@ class TripsController < ApplicationController
 
     def destroy
         @trip = Trip.find(params[:id])
+        # byebug
+        # if destroying a trip with places that has reflections, need to first destroy all the reflections for each place
+        # @trip.places.each { |place| place.reflections.destroy_all }
+        @trip.places.each do |place|
+            if place.reflections.length > 0
+                place.reflections.destroy_all
+            end
+        end
+        # byebug
         @trip.places.destroy_all
         @trip.destroy
 
