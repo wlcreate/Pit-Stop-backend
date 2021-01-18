@@ -7,7 +7,7 @@ This is the Ruby on Rails API for Pit Stop. Pit Stop is a travel journal web app
 
 ### Early Steps
 Before cloning down, you will need Ruby on Rails and Postgres.
-1. Install Ruby with Homebrew
+1. Install [Ruby](https://www.ruby-lang.org/en/) with Homebrew
 ``` 
 brew install Ruby 
 ```
@@ -15,10 +15,11 @@ brew install Ruby
 ```
 gem install rails
 ```
-3. Install PostgreSQL with Homebrew
+3. Install [PostgreSQL](https://www.postgresql.org) with Homebrew
 ```
 brew install postgresql
 ```
+4. Sign up for a free [Cloudinary](https://cloudinary.com) account
 
 ### Downloading this project
 1. Clone this repo and cd into the folder
@@ -26,16 +27,26 @@ brew install postgresql
 ```
 bundle install
 ```
-3. Set up the PostgreSQL database
+3. Install Figaro via the Terminal (which creates the ```application.yaml``` file and adds it to .gitignore)
+```
+bundle exec figaro install
+```
+4. Go to ```./config/application.yml``` and add your Cloudinary cloud_name, api_key, and api_secret
+```
+cloudinary_cloud_name: "sample" 
+cloudinary_api_key: "sample"
+cloudinary_api_secret: "sample"
+```
+5. Set up the PostgreSQL database
 ```
 rails db:create
 ```
-4. Create migrations and seed
+6. Create migrations and seed
 ```
 rails db:migrate
 rails db:seed
 ```
-5. Launch the rails server!
+7. Launch the rails server!
 ```
 rails s
 ```
